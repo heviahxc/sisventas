@@ -4,4 +4,4 @@
     <br>
 @endforeach
 
-wena qlo xd--
+wena maricones qlos
