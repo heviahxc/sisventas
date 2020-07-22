@@ -4,5 +4,4 @@
     <br>
 @endforeach
 
-wena maricones qlos
-mdskjhdfklñdskalasdk
+<a href="/categorias/create">Agregar Nueva Categoria</a>

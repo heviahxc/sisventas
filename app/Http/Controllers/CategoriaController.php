@@ -24,7 +24,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorias.create');
     }
 
     /**
@@ -35,7 +35,15 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'nombre_categoria' => 'required',
+        ]);
+
+        $categoria = new Categoria;
+        $categoria->nombre_categoria = request('nombre_categoria');
+
+        $categoria->save();
+        return redirect('/');
     }
 
     /**

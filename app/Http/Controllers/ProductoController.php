@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Categoria;
 
 class ProductoController extends Controller
 {
@@ -15,7 +16,8 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        return view('productos.index', compact('productos'));
+        $categorias = Categoria::all();
+        return view('productos.index', compact('productos','categorias'));
     }
 
     /**
@@ -25,7 +27,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = Categoria::all();
+        return view('productos.create', compact('categorias'));
     }
 
     /**
@@ -36,7 +39,21 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'nombre' => 'required',
+            'precio' => 'required',
+            'stock' => 'required',
+            'id_categoria' => 'required',
+        ]);
+
+        $producto = new Producto;
+        $producto->nombre = request('nombre');
+        $producto->precio = request('precio');
+        $producto->stock = request('stock');
+        $producto->id_categoria = request('id_categoria');
+
+        $producto->save();
+        return redirect('/');
     }
 
     /**
@@ -58,7 +75,9 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Producto::find($id);
+        $categorias = Categoria::all();
+        return view('productos.edit', compact('categorias','producto'));
     }
 
     /**
@@ -70,7 +89,21 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            'nombre' => 'required',
+            'precio' => 'required',
+            'stock' => 'required',
+            'id_categoria' => 'required',
+        ]);
+
+        $producto = Producto::find($id);
+        $producto->nombre = request('nombre');
+        $producto->precio = request('precio');
+        $producto->stock = request('stock');
+        $producto->id_categoria = request('id_categoria');
+
+        $producto->save();
+        return redirect('/');
     }
 
     /**
