@@ -14,7 +14,11 @@
             <button type="submit">Editar</button>
         </form>    
 
-
+        <form method="POST" action="/productos/{{$producto->id}}">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Eliminar</button>
+        </form>    
     <br>
     <br>
 @endforeach
