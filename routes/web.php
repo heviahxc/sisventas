@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','CategoriaController@index');
+Route::get('/','ProductoController@index');
 
 Route::resource('categorias','CategoriaController');
 
