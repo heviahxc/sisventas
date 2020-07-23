@@ -19,6 +19,9 @@ class CreateBoletasTable extends Migration
             $table->string('rut_empleado');
             $table->integer('total');
             $table->string('estado');
+
+            $table->foreign('rut_cliente')->references('rut')->on('clientes');
+            $table->foreign('rut_empleado')->references('rut')->on('empleados');
             $table->timestamps();
         });
     }

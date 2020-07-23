@@ -17,6 +17,8 @@ class CreateAdministradorsTable extends Migration
             $table->string('rut');
             $table->string('tipo_usuario');
             $table->string('estado');
+            $table->primary('rut');
+            $table->foreign('rut')->references('rut')->on('usuarios');
             $table->timestamps();
         });
     }
