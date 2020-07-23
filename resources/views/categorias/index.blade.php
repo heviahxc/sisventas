@@ -1,19 +1,15 @@
+@extends('layout.master')
+
+@section('content')
+
 @foreach ($categorias as $categoria)
-    => <b>{{$categoria->nombre_categoria}}</b> <br>
-
-    <form action="/categorias/{{$categoria->id}}/edit" method="GET">
-        <button type="submit">editar</button>
-    </form>
-
-    <form method="POST" action="/categorias/{{$categoria->id}}">
-        @csrf
-        @method('DELETE')
-        <button type="submit">eliminar</button>
-    </form>
-
-    <br>
-    <br>
+    
+<x-card-categoria
+    :nombre="$categoria->nombre_categoria"
+    :id="$categoria->id"
+/>
 @endforeach
 
 <a href="/categorias/create">Agregar Nueva Categoria</a>
 
+@endsection
