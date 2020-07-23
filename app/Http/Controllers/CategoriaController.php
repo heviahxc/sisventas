@@ -98,7 +98,7 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         $categoria = Categoria::findOrfail($id);
-        $categoria = delete();
+        $categoria -> delete();
 
         return redirect('/');
     }
