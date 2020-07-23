@@ -1,26 +1,15 @@
+@extends('layout.master')
+
+@section('content')
 @foreach ($productos as $producto)
-    => <b>{{$producto->nombre}}</b> <br>
-        {{$producto->precio}} <br>
-        {{$producto->stock}} <br>
-      
-        @foreach ($categorias as $categoria)
-            @if ($producto->id_categoria == $categoria->id)
-                {{$categoria->nombre_categoria}}
-            @endif
-            
-        @endforeach
-
-        <form action="/productos/{{$producto->id}}/edit" method="GET">
-            <button type="submit">Editar</button>
-        </form>    
-
-        <form method="POST" action="/productos/{{$producto->id}}">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Eliminar</button>
-        </form>    
-    <br>
-    <br>
+<x-card
+    :nombre="$producto->nombre"
+    :precio="$producto->precio"
+    :stock="$producto->stock"
+    :idcategoria="$producto->id_categoria"
+    :categorias="$categorias"
+/>
 @endforeach
 
-<a href="/productos/create">Agregar Nuevo Producto</a>
+<a href="/productos/create">Agregar Nuevo Producto</a> 
+@endsection

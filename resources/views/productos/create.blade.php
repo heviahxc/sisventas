@@ -1,3 +1,6 @@
+@extends('layout.master')
+
+@section('content')
 <form method="POST" action="/productos">
     {{ csrf_field() }}
 
@@ -19,7 +22,6 @@
   </select>
 
 
-
-  
   <input type="submit" value="Agregar Producto">
 </form> 
+@endsection
