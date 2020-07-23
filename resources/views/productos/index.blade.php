@@ -6,10 +6,11 @@
     :nombre="$producto->nombre"
     :precio="$producto->precio"
     :stock="$producto->stock"
+    :id="$producto->id"
     :idcategoria="$producto->id_categoria"
     :categorias="$categorias"
 />
 @endforeach
-
-<a href="/productos/create">Agregar Nuevo Producto</a> 
+<h1> <button type="button" class="btn btn-outline-primary"><a href="/productos/create">Agregar Nuevo Producto</a></button></h1>
+ 
 @endsection
