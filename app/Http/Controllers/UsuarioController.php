@@ -40,7 +40,7 @@ class UsuarioController extends Controller
             'rut' => 'required',
             'contrasena' => 'required',
             'tipo_usuario' => 'required',
-            'anombre' => 'required',
+            'nombre' => 'required',
             'apellidos' => 'required',
             'correo' => 'required',
             'fono' => 'required',
