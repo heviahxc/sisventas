@@ -14,7 +14,10 @@
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
 
-    <button type="submit" class="btn btn-outline-primary" style="margin: 5%"><a href="/principal/mantenedores">Iniciar sesion</a></button>
+    
   </form>
+  <button type="submit" class="btn btn-outline-primary" style="margin: 5%"><a href="{{route('mantenedores')}}">Iniciar sesion</a></button>
 
+
+  
   @endsection

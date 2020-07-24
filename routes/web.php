@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','PrincipalController@index');
 
+Route::get('/','PrincipalController@index')->name('index');
+Route::get('/mantenedores','PrincipalController@mantenedores')->name('mantenedores');
 Route::resource('categorias','CategoriaController');
 Route::resource('productos','ProductoController');
 

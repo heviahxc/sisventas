@@ -1,7 +1,6 @@
-@extends('layout.blade')
+@extends('layout.master')
 
 @section('content')
-
 
 
 @endsection
