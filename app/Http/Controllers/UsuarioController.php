@@ -77,13 +77,11 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($rut)
+    public function edit($id)
     {
-        $usuario = Usuario::find($rut);
-        
-        return view('usuario.edit', compact('usuario'));
-    
+        return view('usuarios.edit');
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -91,9 +89,10 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $rut)
+    public function update(Request $request, $id)
     {
         $this->validate(request(),[
+            'rut' => 'required',
             'contrasena' => 'required',
             'nombre' => 'required',
             'apellidos' => 'required',
@@ -102,6 +101,7 @@ class UsuarioController extends Controller
         ]);
 
         $usuario = Usuario::find($rut);
+        $usuario->rut = request('rut');
         $usuario->contrasena = request('contrasena');
         $usuario->nombre = request('nombre');
         $usuario->apellidos= request('apellidos');
