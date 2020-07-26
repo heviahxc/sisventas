@@ -40,7 +40,7 @@ class UsuarioController extends Controller
             'rut' => 'required',
             'contrasena' => 'required',
             'tipo_usuario' => 'required',
-            'anombre' => 'required',
+            'nombre' => 'required',
             'apellidos' => 'required',
             'correo' => 'required',
             'fono' => 'required',
@@ -56,7 +56,7 @@ class UsuarioController extends Controller
         $usuario->fono = request('fono');
 
         $usuario->save();
-        
+
         return redirect('/');
     }
 
@@ -68,7 +68,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -79,7 +79,7 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('usuarios.edit');
     }
 
     /**
@@ -91,7 +91,26 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            'rut' => 'required',
+            'contrasena' => 'required',
+            'nombre' => 'required',
+            'apellidos' => 'required',
+            'correo' => 'required',
+            'fono' => 'required',
+        ]);
+
+        $usuario = Usuario::find($rut);
+        $usuario->rut = request('rut');
+        $usuario->contrasena = request('contrasena');
+        $usuario->nombre = request('nombre');
+        $usuario->apellidos= request('apellidos');
+        $usuario->correo = request('correo');
+        $usuario->fono = request('fono');
+
+        $usuario->save();
+
+        return redirect('/');
     }
 
     /**
@@ -100,8 +119,11 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($rut)
     {
-        //
+       $usuario = Usuario::findOrfail($rut);
+       $usuario -> delete();
+
+       return redirect('/');
     }
 }

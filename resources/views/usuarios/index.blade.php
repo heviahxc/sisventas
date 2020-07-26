@@ -8,7 +8,16 @@
       {{$usuario->fono}}<br>
 
       <br>
-      <br>
+<form action="/usuarios/{{$usuario->rut}}/edit" method="GET">
+  <button type="submit">editar</button>
+
+  <form method="POST" action="/usuarios/{{$usuario->rut}}">
+    @csrf
+    @method('DELETE')
+    <button type="submit">eliminar</button>
+       <br>
+       <br>
+      
 @endforeach
 
 <a href="/usuarios/create">ingresar usuario</a>
