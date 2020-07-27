@@ -54,8 +54,14 @@ class UsuarioController extends Controller
         $usuario->apellidos= request('apellidos');
         $usuario->correo = request('correo');
         $usuario->fono = request('fono');
-
         $usuario->save();
+        
+        $cliente = new Cliente;
+        $cliente->rut()->associate($usuario);
+        $cliente->tipo_usuario = request('tipo_usuario');
+        $cliente->estado = request('estado');
+
+        $cliente->save();
 
         return redirect('/');
     }
