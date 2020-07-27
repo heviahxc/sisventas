@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\Cliente;
 
 class UsuarioController extends Controller
 {
@@ -57,7 +58,7 @@ class UsuarioController extends Controller
         $usuario->save();
         
         $cliente = new Cliente;
-        $cliente->rut()->associate($usuario);
+        $cliente->rut = request('rut');
         $cliente->tipo_usuario = request('tipo_usuario');
         $cliente->estado = request('estado');
 
