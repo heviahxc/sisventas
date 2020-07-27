@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::get('/','UsuarioController@index')->name('index');
 Route::get('/mantenedores','PrincipalController@mantenedores')->name('mantenedores');
+
+Route::get('/','PrincipalController@index')->name('index');
+
 Route::resource('categorias','CategoriaController');
 Route::resource('productos','ProductoController');
 Route::resource('usuarios','UsuarioController');
