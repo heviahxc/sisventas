@@ -53,7 +53,7 @@ class ProductoController extends Controller
         $producto->id_categoria = request('id_categoria');
 
         $producto->save();
-        return redirect('/');
+        return redirect('/productos');
     }
 
     /**
@@ -103,7 +103,7 @@ class ProductoController extends Controller
         $producto->id_categoria = request('id_categoria');
 
         $producto->save();
-        return redirect('/');
+        return redirect('/productos');
     }
 
     /**
@@ -117,6 +117,6 @@ class ProductoController extends Controller
        $producto = Producto::findOrfail($id);
        $producto -> delete();
 
-       return redirect('/');
+       return redirect('/productos');
     }
 }

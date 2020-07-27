@@ -43,7 +43,7 @@ class CategoriaController extends Controller
         $categoria->nombre_categoria = request('nombre_categoria');
 
         $categoria->save();
-        return redirect('/');
+        return redirect('/categorias');
     }
 
     /**
@@ -86,7 +86,7 @@ class CategoriaController extends Controller
         $categoria->nombre_categoria = request('nombre_categoria');
 
         $categoria->save();
-        return redirect('/');
+        return redirect('/categorias');
     }
 
     /**
@@ -100,6 +100,6 @@ class CategoriaController extends Controller
         $categoria = Categoria::findOrfail($id);
         $categoria -> delete();
 
-        return redirect('/');
+        return redirect('/categorias');
     }
 }
