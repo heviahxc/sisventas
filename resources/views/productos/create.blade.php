@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<form method="POST" action="/productos">
+<form method="POST" action="/productos" style="margin: 5%">
     {{ csrf_field() }}
 
   <label for="nombre">Nombre producto:</label><br>

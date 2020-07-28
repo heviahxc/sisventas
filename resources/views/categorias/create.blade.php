@@ -3,7 +3,7 @@
 @section('content')
  
  
- <form method="POST" action="/categorias">
+ <form method="POST" action="/categorias" style="margin: 5%">
     {{ csrf_field() }}
 
   <label for="nombre_categoria">Nombre categoria:</label><br>

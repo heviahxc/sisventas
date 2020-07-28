@@ -1,4 +1,9 @@
-<form method="POST" action="/productos/{{$producto->id}}">
+@extends('layout.master')
+
+@section('content')
+
+
+<form method="POST" action="/productos/{{$producto->id}}" style="margin: 5%">
     @method('PUT')
     {{ csrf_field() }}
 
@@ -20,7 +25,9 @@
   </select>
 
 
-
+  <br>
   
   <input class="btn btn-outline-primary" type="submit" value="Editar Producto">
 </form> 
+
+@endsection

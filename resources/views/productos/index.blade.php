@@ -11,6 +11,6 @@
     :categorias="$categorias"
 />
 @endforeach
-<h1> <button type="button" class="btn btn-outline-primary"><a href="/productos/create">Agregar Nuevo Producto</a></button></h1>
+<h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/productos/create">Agregar Nuevo Producto</a></button></h1>
  
 @endsection

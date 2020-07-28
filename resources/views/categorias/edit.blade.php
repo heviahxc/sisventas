@@ -5,7 +5,7 @@
 
 
 
-<form method="POST" action="/categorias/{{$categoria->id}}">
+<form method="POST" action="/categorias/{{$categoria->id}}" style="margin: 5%"> 
     @method('PUT')
     {{ csrf_field() }}
 

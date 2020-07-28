@@ -10,6 +10,7 @@
 />
 @endforeach
 
-<a href="/categorias/create">Agregar Nueva Categoria</a>
+<h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/categorias/create"
+>Agregar Nueva Categoria</a></button></h1>
 
 @endsection

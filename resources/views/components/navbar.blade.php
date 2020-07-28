@@ -8,6 +8,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="/mantenedores">Home<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Cerrar sesion<span class="sr-only">(current)</span></a>
+        </li>
       </ul>
     </div>
   </nav>
