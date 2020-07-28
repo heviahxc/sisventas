@@ -1,6 +1,10 @@
 <div class="card" style="margin: 5%">
     <div class="card-header">
         
+
+    <img src="{{$imagen}}" class="card-img-top" alt="...">
+
+    
         <b>{{$nombre}}</b>
     </div>
     <div class="card-body">

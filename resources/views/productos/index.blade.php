@@ -9,6 +9,7 @@
     :id="$producto->id"
     :idcategoria="$producto->id_categoria"
     :categorias="$categorias"
+    :imagen="$imagen"
 />
 @endforeach
 <h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/productos/create">Agregar Nuevo Producto</a></button></h1>
