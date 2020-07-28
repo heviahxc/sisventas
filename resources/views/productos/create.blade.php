@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<form method="POST" action="/productos" style="margin: 5%">
+<form action="/productos" style="margin: 5%" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
 
   <label for="nombre">Nombre producto:</label><br>
@@ -20,6 +20,9 @@
     @endforeach
 
   </select>
+  <br>
+  <label for="imagen">Imagen:</label><br>
+  <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*"><br>
 <br>
 <br>
   <input class="btn btn-outline-primary" type="submit" value="Agregar Producto">

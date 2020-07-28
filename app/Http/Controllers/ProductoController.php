@@ -44,6 +44,8 @@ class ProductoController extends Controller
             'precio' => 'required',
             'stock' => 'required',
             'id_categoria' => 'required',
+            'imagen'=>'required',
+
         ]);
 
         $producto = new Producto;
@@ -51,6 +53,7 @@ class ProductoController extends Controller
         $producto->precio = request('precio');
         $producto->stock = request('stock');
         $producto->id_categoria = request('id_categoria');
+        $producto->imagen= request('imagen');
 
         $producto->save();
         return redirect('/productos');

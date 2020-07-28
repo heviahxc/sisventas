@@ -16,12 +16,14 @@ class ProductoSeeder extends Seeder
             'precio' => '200000',           
             'stock' => '20',
             'id_categoria' => '1',
+            'imagen'=>'imagen1',
         ]);
         DB::table('productos')->insert([
             'nombre' => 'Pulidora',
             'precio' => '80000',           
             'stock' => '50',
             'id_categoria' => '2',
+            'imagen'=>'imagen2',
        
         ]);
     }
