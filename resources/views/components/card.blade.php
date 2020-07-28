@@ -1,10 +1,12 @@
 <div class="card" style="margin: 5%">
-    <div class="card-header">
+    <div class="card style="width: 18rem;>
         
 
-    <img src="{{$imagen}}" class="card-img-top" alt="...">
+    <img src="{{asset('storage').'/'.$imagen}}" alt="producto" width="200">
 
-    
+  
+
+
         <b>{{$nombre}}</b>
     </div>
     <div class="card-body">

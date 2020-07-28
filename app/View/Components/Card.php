@@ -14,7 +14,7 @@ class Card extends Component
     public $categorias;
     public $imagen;
      
-    public function __construct($nombre, $precio, $stock, $id, $idcategoria, $categorias,$imagen)
+    public function __construct($nombre, $precio, $stock, $id, $idcategoria, $categorias, $imagen)
     {
         $this->nombre = $nombre;
         $this->precio = $precio;

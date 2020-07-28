@@ -55,6 +55,10 @@ class ProductoController extends Controller
         $producto->id_categoria = request('id_categoria');
         $producto->imagen= request('imagen');
 
+        if($request->hasFile('imagen')){
+            $producto['imagen']=$request->file('imagen')->store('uploads','public');
+        }
+
         $producto->save();
         return redirect('/productos');
     }
