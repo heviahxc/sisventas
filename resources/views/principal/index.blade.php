@@ -20,8 +20,10 @@
 </style>
 
 <body class="text-center">
-<form class="form-signin" action="/mantenedores" style="margin: 5%">
+<form method="POST" class="form-signin" action="/mantenedores" style="margin: 5%">
+ 
 <h1 class="h3 mb-3 font-weight-normal">Iniciar session</h1>
+
 <label for="inputEmail" class="form-text text-muted">Ingresa email</label>
 <input type="email"  class="form-control" placeholder="Ingresa Email">
 <br>
