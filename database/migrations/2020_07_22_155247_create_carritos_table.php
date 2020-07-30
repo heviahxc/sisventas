@@ -18,7 +18,7 @@ class CreateCarritosTable extends Migration
             $table->string('rut');
             $table->integer('cantidad');
             $table->integer('precio_unitario');
-            $table->foreign('rut')->references('rut')->on('clientes');
+            $table->foreign('rut')->references('rut')->on('users');
             $table->foreign('codigo_producto')->references('id')->on('productos');
             $table->timestamps();
         });

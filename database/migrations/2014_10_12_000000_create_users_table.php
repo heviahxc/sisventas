@@ -19,14 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('apellidos');
             $table->integer('fono');
-            $table->unsignedBigInteger('tipo_usuario');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('tipo_usuario')->references('id')->on('roles');
+           
         });
     }
 
