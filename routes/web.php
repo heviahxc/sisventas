@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('administradors','IngresoController');
-Route::resource('categorias','CategoriaController');
-Route::resource('productos','ProductoController');
-Route::resource('usuarios','UsuarioController');
+
+Route::group(['middleware' => ['permission:reporte_productos|modificar_productos|crear_productos|darbaja_productos|reporte_categoria|crear_categoria|modificar_categoria|darbaja_categoria']], function () {
+    Route::resource('productos','ProductoController');
+    Route::resource('categorias','CategoriaController');
+});

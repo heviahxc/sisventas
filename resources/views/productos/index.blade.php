@@ -1,3 +1,8 @@
+@canany('reporte_productos','darbaja_productos','modificar_productos','crear_productos')
+
+
+
+
 @extends('layout.master')
 
 @section('content')
@@ -12,6 +17,8 @@
     :imagen="$producto->imagen"
 />
 @endforeach
+
 <h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/productos/create">Agregar Nuevo Producto</a></button></h1>
  
 @endsection
+@endcan

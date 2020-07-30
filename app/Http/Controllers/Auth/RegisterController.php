@@ -8,7 +8,9 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Roles;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 
 class RegisterController extends Controller
 {
@@ -56,7 +58,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'apellidos' => ['required', 'string', 'max:255'],
             'fono' => ['required', 'integer'],
-            'tipo_usuario' => ['required'],
+      
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -75,9 +77,16 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'apellidos' => $data['apellidos'],
             'fono' => $data['fono'],
-            'tipo_usuario' => $data['tipo_usuario'],
+            
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            
         ]);
+
+       
+
+
+        
+        
     }
 }
