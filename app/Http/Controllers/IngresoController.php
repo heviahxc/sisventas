@@ -14,8 +14,8 @@ class IngresoController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('administradors.index', compact('users'));
+        
+        return view('administradors.index');
     }
 
     /**

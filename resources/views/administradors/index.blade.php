@@ -18,25 +18,11 @@
               <th>Nombre</th>
               <th>Apellidos</th>
               <th>Fono</th>
-              <th>Tipo</th>
               <th>email</th>
-              
+              <th>Tipo</th>
 
           </tr>
          </thead>
-          <tbody>
-             @foreach ($users as $user)
-                 <tr>
-                 <td>{{$user->rut}}</td>
-                 <td>{{$user->name}}</td>
-                 <td>{{$user->apellidos}}</td>
-                 <td>{{$user->fono}}</td>
-                 <td>{{$user->tipo_usuario}}</td>
-                 <td>{{$user->email}}</td>
-                 </tr>
-             @endforeach
-
-          </tbody>
          </table>
          </div>
          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -45,7 +31,19 @@
 
      <script>
         $(document).ready(function() {
-          $('#users').DataTable();
+          $('#users').DataTable({
+              "serverSide": true,
+              "ajax": "{{url('api/users')}}",
+              "columns":[
+                  {data: 'rut'},
+                  {data: 'name'},
+                  {data: 'apellidos'},
+                  {data: 'fono'},
+                  {data: 'email'},
+                  {data: 'tipo_usuario'},
+                  
+              ]
+          });
         } );</script>
    </body>
 
