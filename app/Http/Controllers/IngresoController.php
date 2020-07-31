@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class IngresoController extends Controller
 {
@@ -13,7 +14,8 @@ class IngresoController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('administradors.index', compact('users'));
     }
 
     /**
