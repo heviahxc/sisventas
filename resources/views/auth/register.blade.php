@@ -86,7 +86,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <input type="hidden" name="tipo_usuario" id="tipo_usuario" value="CLIENTE">
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
