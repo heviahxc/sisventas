@@ -22,6 +22,7 @@ class PermissionSeeder extends Seeder
     array_push($permissions_adm,Permission::create(['name' => 'crear_empleado']));
     array_push($permissions_adm,Permission::create(['name' => 'modificar_empleado']));
     array_push($permissions_adm,Permission::create(['name' => 'darbaja_empleado']));
+    array_push($permissions_adm,Permission::create(['name' => 'reporte_empleado']));
     
 $ADMINISTRADOR = Role::create(['name' => 'ADMINISTRADOR']);
 
@@ -43,7 +44,13 @@ $EMPLEADO = Role::create(['name' => 'EMPLEADO']);
 
 $EMPLEADO->syncPermissions($permissions_array);
 
+$permissions_user = [];
+array_push($permissions_user,Permission::create(['name' => 'comprar_productos']));
 
+
+$CLIENTE = Role::create(['name' => 'CLIENTE']);
+
+$CLIENTE->syncPermissions($permissions_user);
 
 $admin_user = User::create([
     'rut' => '111111111',
