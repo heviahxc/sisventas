@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('users', function(){
-
-    return datatables()
-    ->eloquent(App\User::query())
-    ->toJson();
-
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->users();
 });
