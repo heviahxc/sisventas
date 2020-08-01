@@ -58,7 +58,8 @@ class IngresoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::find($id);
+        return view('administradors.edit');
     }
 
     /**
@@ -70,7 +71,18 @@ class IngresoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            
+        ]);
+
+        $users = User::find($id);
+        $users->name = request('name');
+        $users->apellidos = request('apellidos');
+        $users->fono = request('fono');
+        $users->email = request('email');
+
+        $users->save();
+        return redirect('/');
     }
 
     /**
@@ -81,6 +93,9 @@ class IngresoController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $users= User::findOrfail($id);
+       $users -> delete();
+
+       return redirect('/');
     }
 }

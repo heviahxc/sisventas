@@ -20,6 +20,8 @@
               <th>Fono</th>
               <th>email</th>
               <th>Tipo</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
 
           </tr>
          </thead>
@@ -30,8 +32,12 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->apellidos}}</td>
                 <td>{{$user->fono}}</td>
-                <td>{{$user->tipo_usuario}}</td>
                 <td>{{$user->email}}</td>
+                <td>{{$user->tipo_usuario}}</td>
+                <td><form action="/productos/{{$users}}/edit" method="GET">
+                    <button type="submit" class="btn btn-primary">Editar</button></td>
+                <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
+
                 </tr>
             @endforeach
 
