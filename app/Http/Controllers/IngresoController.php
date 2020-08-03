@@ -59,7 +59,7 @@ class IngresoController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-        return view('administradors.edit');
+        return view('administradors.edit', compact('users'));
     }
 
     /**

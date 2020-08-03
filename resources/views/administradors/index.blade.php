@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+
+
+@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
        <meta charset="utf-8">
@@ -27,18 +30,23 @@
          </thead>
          <tbody>
             @foreach ($users as $user)
-                <tr>
+            @if ($user->tipo_usuario == 'EMPLEADO')
+            <tr>
                 <td>{{$user->rut}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->apellidos}}</td>
                 <td>{{$user->fono}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->tipo_usuario}}</td>
-                <td><form action="/productos/{{$users}}/edit" method="GET">
-                    <button type="submit" class="btn btn-primary">Editar</button></td>
+                <td><form action="/administradors/{{$user->id}}/edit" method="GET">
+                    <button type="submit" class="btn btn-primary">Editar</button></form></td>
                 <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
-
+               
                 </tr>
+            @else
+                
+            @endif
+             
             @endforeach
 
          </tbody>
@@ -54,6 +62,6 @@
         } );</script>
    </body>
 
-   </html>
-       
+
+   @endsection
   

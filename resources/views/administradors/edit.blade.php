@@ -13,7 +13,7 @@
 <input type="text" id="fono" name="fono" value="{{$users->fono}}"><br>
 
 <label for="email">email:</label><br>
-<input type="text" id="email" name="email" value="{{$users->correo}}"><br>
+<input type="text" id="email" name="email" value="{{$users->email}}"><br>
 
   <input type="submit" value="editar usuario">
 </form> 
