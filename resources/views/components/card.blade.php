@@ -1,5 +1,7 @@
-<div class="card" style="margin: 5%">
-    <div class="card style="width: 18rem;>
+
+<div class="card mb-3" style="max-width: 540px;"  >
+    <div class="row no-gutters">
+        <div class="col-md-4">
         
 
     <img src="{{asset('storage').'/'.$imagen}}" alt="producto" width="200">
@@ -9,6 +11,7 @@
 
         <b>{{$nombre}}</b>
     </div>
+    <div class="col-md-8">
     <div class="card-body">
         <b><label for="precio">Precio:</label></b><br>
         {{$precio}} <br>
@@ -37,10 +40,12 @@
           </div>
 
 
-
-
+        </div>
     </div>
   </div>
+
+    </div>
+  
 
 
 

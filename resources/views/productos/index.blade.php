@@ -3,7 +3,12 @@
 
 
 
-@extends('layout.master')
+@extends('layouts.app')
+
+<link rel="stylesheet" type="text/css" href="css/form.css">
+
+
+
 
 @section('content')
 @foreach ($productos as $producto)
