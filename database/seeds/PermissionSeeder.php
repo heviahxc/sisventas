@@ -60,6 +60,7 @@ $admin_user = User::create([
     'email' => 'admin@gmail.com',
     'tipo_usuario' => 'ADMINISTRADOR',
     'password' => Hash::make('admin'),
+    'estado' => 'ACTIVO',
 ]);
 $admin_user->removeRole('CLIENTE');
 $admin_user->assignRole('ADMINISTRADOR');
@@ -71,6 +72,8 @@ $empleado_user = User::create([
     'email' => 'empleado@gmail.com',
     'tipo_usuario' => 'EMPLEADO',
     'password' => Hash::make('empleado'),
+    'estado' => 'ACTIVO',
+
 ]);
 $empleado_user->removeRole('CLIENTE');
 $empleado_user->assignRole('EMPLEADO');
