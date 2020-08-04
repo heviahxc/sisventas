@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Hash;
 
 class IngresoController extends Controller
 {
@@ -25,7 +28,8 @@ class IngresoController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('administradors.create', compact('users'));
     }
 
     /**
@@ -36,7 +40,32 @@ class IngresoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'rut' => 'required',
+            'name' => 'required',
+            'apellidos' => 'required',
+            'fono' => 'required',
+            'email'=>'required',
+            'password'=>'required',
+
+        ]);
+
+        $users = new User;
+        $users->rut = request('rut');
+        $users->name = request('name');
+        $users->apellidos = request('apellidos');
+        $users->fono = request('fono');
+        $users->email= request('email');
+        $users->tipo_usuario= request('tipo_usuario');
+        $users->password= Hash::make(request('password'));
+        $users->estado= request('estado');
+        
+      
+
+        $users->save();
+        $users->removeRole('CLIENTE');
+        $users->assignRole('EMPLEADO');
+        return redirect('/administradors');
     }
 
     /**
@@ -62,6 +91,17 @@ class IngresoController extends Controller
         return view('administradors.edit', compact('users'));
     }
 
+    public function editestado($id)
+    {
+        
+    
+            $users = User::find($id);
+            $estado->estado=('INACTIVO');
+    
+            $users->save();
+            return redirect('/administradors');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -80,9 +120,11 @@ class IngresoController extends Controller
         $users->apellidos = request('apellidos');
         $users->fono = request('fono');
         $users->email = request('email');
+        $users->password= Hash::make(request('password'));
+        $estado->estado= request('estado');
 
         $users->save();
-        return redirect('/');
+        return redirect('/administradors');
     }
 
     /**

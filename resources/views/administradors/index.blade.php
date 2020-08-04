@@ -40,7 +40,8 @@
                 <td>{{$user->tipo_usuario}}</td>
                 <td><form action="/administradors/{{$user->id}}/edit" method="GET">
                     <button type="submit" class="btn btn-primary">Editar</button></form></td>
-                <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
+                <td><form action="/administradors/{{$user->id}}/editestado" method="GET">
+                    <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
                
                 </tr>
             @else
@@ -61,6 +62,8 @@
           $('#users').DataTable();
         } );</script>
    </body>
+
+   <h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/administradors/create">Agregar Nuevo Empleado</a></button></h1>
 
 
    @endsection

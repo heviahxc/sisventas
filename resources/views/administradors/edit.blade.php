@@ -1,19 +1,128 @@
-<form method="POST" action="/administradors/{{$users->id}}">
-    @method('PUT')
-    {{ csrf_field() }}
-
   
-<label for="name">nombre:</label><br>
-<input type="text" id="name" name="name" value="{{$users->name}}"><br>
+    @extends('layouts.app')
 
-<label for="apellidos">apellidos:</label><br>
-<input type="text" id="apellidos" name="apellidos" value="{{$users->apellidos}}"><br>
-
-<label for="fono">fono:</label><br>
-<input type="text" id="fono" name="fono" value="{{$users->fono}}"><br>
-
-<label for="email">email:</label><br>
-<input type="text" id="email" name="email" value="{{$users->email}}"><br>
-
-  <input type="submit" value="editar usuario">
-</form> 
+    @section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Modificar Empleado') }}</div>
+    
+                    <div class="card-body">
+                        <form method="POST" action="/administradors/{{$users->id}}">
+                          @method('PUT')
+                            @csrf
+    
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Rut') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" name="rut" value="{{$users->rut}}">
+    
+                                    @error('rut')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$users->name}}">
+    
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+    
+    
+    
+                            <div class="form-group row">
+                                <label for="apellidos" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="apellidos" type="text" class="form-control @error('apellidos') is-invalid @enderror" name="apellidos" value="{{$users->apellidos}}">
+    
+                                    @error('apellidos')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="fono" class="col-md-4 col-form-label text-md-right">{{ __('Telefono/Celular') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="fono" type="number" class="form-control @error('fono') is-invalid @enderror" name="fono" value="{{$users->fono}}">
+    
+                                    @error('fono')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                          
+    
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$users->email}}">
+    
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <input type="hidden" name="tipo_usuario" id="tipo_usuario" value="EMPLEADO">
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{$users->password}}">
+    
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar contraseña') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Modificar') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endsection
+    
