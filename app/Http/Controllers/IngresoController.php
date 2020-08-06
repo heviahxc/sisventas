@@ -91,16 +91,6 @@ class IngresoController extends Controller
         return view('administradors.edit', compact('users'));
     }
 
-    public function editestado($id)
-    {
-        
-    
-            $users = User::find($id);
-            $estado->estado=('INACTIVO');
-    
-            $users->save();
-            return redirect('/administradors');
-    }
 
     /**
      * Update the specified resource in storage.
@@ -138,6 +128,6 @@ class IngresoController extends Controller
        $users= User::findOrfail($id);
        $users -> delete();
 
-       return redirect('/');
+       return redirect('/administradors');
     }
 }

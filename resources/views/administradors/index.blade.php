@@ -13,7 +13,7 @@
 
    </head>
    <body>
-       <div class="container">
+       <div class="container" STYLE="BACKGROUND-COLOR: WHITE">
        <table id="users">
          <thead>
           <tr>
@@ -40,9 +40,10 @@
                 <td>{{$user->tipo_usuario}}</td>
                 <td><form action="/administradors/{{$user->id}}/edit" method="GET">
                     <button type="submit" class="btn btn-primary">Editar</button></form></td>
-                <td><form action="/administradors/{{$user->id}}/editestado" method="GET">
+                <td><form action="/administradors/{{$user->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
                     <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
-               
                 </tr>
             @else
                 
