@@ -41,7 +41,9 @@
              <td>{{$categoria->nombre_categoria}}</td>
              @endif    
              @endforeach
-             <td>{{$producto->imagen}}</td>
+
+             <td><img src="{{asset('storage').'/'.$producto->imagen}}" alt="producto" width="50"></td>
+            
              <td><form action="/productos/{{$producto->id}}/edit" method="GET">
                  <button type="submit" class="btn btn-primary">Editar</button></form></td>
              <td><form action="/productos/{{$producto->id}}" method="POST">
