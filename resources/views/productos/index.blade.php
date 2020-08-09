@@ -17,6 +17,7 @@
 </head>
 <body>
     <div class="container" STYLE="BACKGROUND-COLOR: WHITE">
+        
     <table id="productos">
       <thead>
        <tr>
@@ -30,6 +31,7 @@
 
        </tr>
       </thead>
+      
       <tbody>
          @foreach ($productos as $producto)
          <tr>
@@ -57,6 +59,8 @@
 
       </tbody>
       </table>
+      <h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/productos/create">Agregar Nuevo producto</a></button></h1>
+
       </div>
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
       <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -68,7 +72,6 @@
      } );</script>
 </body>
 
-<h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/productos/create">Agregar Nuevo producto</a></button></h1>
 
 
 

@@ -61,7 +61,7 @@
                             <label for="fono" class="col-md-4 col-form-label text-md-right">{{ __('Telefono/Celular') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fono" type="number" class="form-control @error('fono') is-invalid @enderror" name="fono" value="{{ old('fono') }}" required autocomplete="fono" autofocus>
+                                <input id="fono" type="number"  class="form-control @error('fono') is-invalid @enderror" name="fono" value="{{ old('fono') }}" required autocomplete="fono" autofocus>
 
                                 @error('fono')
                                     <span class="invalid-feedback" role="alert">
