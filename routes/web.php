@@ -33,3 +33,7 @@ Route::group(['middleware' => ['permission:crear_empleado|modificar_empleado|dar
     Route::resource('administradors','IngresoController');
     Route::resource('clientes','ClienteController');
 });
+Route::group(['middleware' => ['permission:comprar_productos']], function () {
+    Route::resource('seleccion','CarritoController');
+    Route::get('carrito','CarritoController@carrito');
+});

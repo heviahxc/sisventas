@@ -40,6 +40,10 @@
                 </a>
 
                 @endcan
+                @can('comprar_productos')
+                <a class="navbar-brand" href="{{ url('seleccion') }}">
+                    {{'Tienda'}}
+                @endcan
 
                 @can('crear_empleado')
                 <a class="navbar-brand" href="{{ url('administradors') }}">

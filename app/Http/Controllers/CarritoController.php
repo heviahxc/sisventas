@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\carrito;
 use App\producto;
 use App\categoria;
+use App\user;
 use Illuminate\Http\Request;
 
 class CarritoController extends Controller
@@ -17,7 +18,12 @@ class CarritoController extends Controller
     {
         $productos = Producto::paginate(6);
         $categorias = Categoria::all();
-        return view('seleccion.index', compact('productos','categorias'));
+        $users = User::all();
+        return view('seleccion.index', compact('productos','categorias','users'));
+    }
+    public function carrito()
+    {
+        return view('seleccion.carrito');
     }
 
     /**
@@ -27,7 +33,7 @@ class CarritoController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -38,7 +44,21 @@ class CarritoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'id' => 'required',
+            'rut' => 'required',
+            'cantidad' => 'required',
+            'precio'=>'required',
+        ]);
+
+        $carrito = new Carrito;
+        $carrito->codigo_producto = request('id');
+        $carrito->rut = request('rut');
+        $carrito->cantidad = request('cantidad');
+        $carrito->precio_unitario = request('precio');
+
+        $carrito->save();
+        return redirect('/seleccion');
     }
 
     /**
