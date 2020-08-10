@@ -43,7 +43,7 @@
 
                 @can('crear_empleado')
                 <a class="navbar-brand" href="{{ url('administradors') }}">
-                    {{'Usuarios'}}
+                    {{'Empleados'}}
                 </a>
                     <a class="navbar-brand" href="{{ url('clientes') }}">
                     {{'Clientes'}}
