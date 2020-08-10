@@ -31,4 +31,5 @@ Route::group(['middleware' => ['permission:reporte_productos|modificar_productos
 
 Route::group(['middleware' => ['permission:crear_empleado|modificar_empleado|darbaja_empleado']], function () {
     Route::resource('administradors','IngresoController');
+    Route::resource('clientes','ClienteController');
 });

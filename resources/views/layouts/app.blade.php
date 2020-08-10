@@ -45,7 +45,7 @@
                 <a class="navbar-brand" href="{{ url('administradors') }}">
                     {{'Usuarios'}}
                 </a>
-                    <a class="navbar-brand" href="{{ url('administradors.cliente') }}">
+                    <a class="navbar-brand" href="{{ url('clientes') }}">
                     {{'Clientes'}}
                 </a>
                     
