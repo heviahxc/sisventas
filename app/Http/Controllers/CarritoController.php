@@ -22,8 +22,11 @@ class CarritoController extends Controller
         return view('seleccion.index', compact('productos','categorias','users'));
     }
     public function carrito()
-    {
-        return view('seleccion.carrito');
+    {   $productos = Producto::all();
+        $categorias = Categoria::all();
+        $users = User::all();
+        $carritos = Carrito::all();
+        return view('seleccion.carrito',compact('productos','categorias','users','carritos'));
     }
 
     /**
@@ -103,6 +106,9 @@ class CarritoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carrito = Carrito::findOrfail($id);
+        $carrito -> delete();
+ 
+        return redirect('/carrito');
     }
 }

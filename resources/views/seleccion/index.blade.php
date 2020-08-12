@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Productos</div>
-
+                <a href="/carrito" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Carrito de compra</a>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
