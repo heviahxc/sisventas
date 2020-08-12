@@ -111,7 +111,7 @@ class IngresoController extends Controller
         $users->fono = request('fono');
         $users->email = request('email');
         $users->password= Hash::make(request('password'));
-        $estado->estado= request('estado');
+        $users->estado= request('estado');
 
         $users->save();
         return redirect('/administradors');
