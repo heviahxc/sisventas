@@ -14,7 +14,7 @@ class Desstock extends Migration
     public function up()
     {
         DB::unprepared('
-        delimiter //
+      
         CREATE TRIGGER destock AFTER INSERT ON carritos
         FOR EACH
         ROW
@@ -23,8 +23,7 @@ class Desstock extends Migration
             SET productos.stock = productos.stock - new.cantidad
             WHERE productos.id = new.codigo_producto;
         END
-        //
-        delimiter ;
+    
         ');
     }
     

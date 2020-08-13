@@ -28,6 +28,9 @@
                     <body>
 
                     <div class="container" STYLE="BACKGROUND-COLOR: WHITE">
+                       
+                         
+                                {{ csrf_field() }}
                         <table id="carrito">
                           <thead>
                            <tr>
@@ -43,15 +46,17 @@
                             <tr>
                                 <?php
                                 $total=0;
+                        
                                 ?>
                              @foreach ($carritos as $carrito)
-                             @foreach ($users as $user)
-                                 @if ($user->rut==$carrito->rut)
+                             
+                                 @if (auth()->user()->rut==$carrito->rut)
+                                 
                                  @foreach ($productos as $producto)
                                 
                             
                                  @if ($carrito->codigo_producto==$producto->id)
-
+                           
                                  <td>{{$producto->nombre}}</td>
                                  <td>{{$carrito->cantidad}}</td>
                                  <td>{{$producto->precio}}</td>
@@ -64,23 +69,40 @@
                                  <td><form action="/seleccion/{{$carrito->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Seguro quiere eliminar el articulo del carrito?')">Eliminar</button></form></td>
                                  @endif
     
     
                                  @endforeach
                                  
                                  @endif
-                             @endforeach
+                    
                           
                                  </tr>
                              
                               
                              @endforeach
                     
+
+                             
                           </tbody>
                           </table>
-                          ${{$total}}
+                          <form action="/boleta" method="POST">
+                            {{ csrf_field() }}
+                          <p><Strong>Total:</Strong>${{$total}}</p>   
+                         <strong>Seleccionar metodo de pago:<strong>
+                            <select class="form-control form-control" id="id_pago" name="id_pago" size="1">
+                                @foreach ($tipopagos as $tipopago)
+                                    <option value={{$tipopago->id}}>{{$tipopago->descripcion}}</option>
+                                @endforeach
+                            </select>
+                            <br>
+                            
+                            <input type="hidden" name="rut_cliente" id="rut_cliente" value="{{auth()->user()->rut}}">
+                             <input type="hidden" name="total" id="total" value="{{$total}}">
+                             <input type="hidden" name="estado" id="estado" value="VIGENTE">
+                            <button type="submit" class="btn btn-success">Comprar</button></form>
+                            </form>
                           </div>
                           <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                           <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>

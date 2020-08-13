@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\carrito;
-use App\producto;
-use App\categoria;
-use App\user;
-use App\tipopago;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
+use App\Boleta;
+use App\Detalle;
+use App\MedioPago;
+use App\Carrito;
 
-class CarritoController extends Controller
+class BoletaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,18 +17,7 @@ class CarritoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::paginate(4);
-        $categorias = Categoria::all();
-        $users = User::all();
-        return view('seleccion.index', compact('productos','categorias','users'));
-    }
-    public function carrito()
-    {   $productos = Producto::all();
-        $categorias = Categoria::all();
-        $users = User::all();
-        $carritos = Carrito::all();
-        $tipopagos = Tipopago::all();
-        return view('seleccion.carrito',compact('productos','categorias','users','carritos','tipopagos'));
+        //
     }
 
     /**
@@ -38,6 +27,8 @@ class CarritoController extends Controller
      */
     public function create()
     {
+       
+
        
     }
 
@@ -49,21 +40,42 @@ class CarritoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate(request(),[
-            'id' => 'required',
-            'rut' => 'required',
-            'cantidad' => 'required',
-            'precio'=>'required',
-        ]);
+        $boleta = new Boleta;
+        $boleta->rut_cliente = request('rut_cliente');
+        $boleta->total = request('total');
+        $boleta->estado = request('estado');
 
-        $carrito = new Carrito;
-        $carrito->codigo_producto = request('id');
-        $carrito->rut = request('rut');
-        $carrito->cantidad = request('cantidad');
-        $carrito->precio_unitario = request('precio');
+        $boleta->save();
 
-        $carrito->save();
-        return redirect('/seleccion');
+        $mediopago = new MedioPago;
+        $mediopago->codigo_boleta = $boleta->id ;
+        $mediopago->codigo_pago = request('id_pago');
+        $mediopago->total_pago = request('total');
+
+        $mediopago->save();
+
+        $array_id = request('array_id');
+        $array_cantidad = request('array_cantidad');
+        $array_precio = request('array_precio');
+        $array_totalcp = request('array_totalcp');
+        $carritos = Carrito::all();
+     
+        foreach($carritos as $carrito){
+            if(request('rut_cliente')==$carrito->rut){
+                $detalle = new Detalle;
+                $detalle->codigo_producto = $carrito->codigo_producto;
+                $detalle->codigo_boleta = $boleta->id ;
+                $detalle->cantidad = $carrito->cantidad ;
+                $detalle->precio_unitario = $carrito->precio_unitario;
+                $detalle->total = $carrito->cantidad*$carrito->precio_unitario;
+    
+                $detalle->save();
+            }
+        }
+
+  
+
+        return redirect('/home');
     }
 
     /**
@@ -108,9 +120,6 @@ class CarritoController extends Controller
      */
     public function destroy($id)
     {
-        $carrito = Carrito::findOrfail($id);
-        $carrito -> delete();
- 
-        return redirect('/carrito');
+        //
     }
 }

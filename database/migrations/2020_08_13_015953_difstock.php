@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Dismstock extends Migration
+class Difstock extends Migration
 {
     /**
      * Run the migrations.
@@ -15,17 +15,13 @@ class Dismstock extends Migration
     {
         DB::unprepared('
        
-        CREATE TRIGGER aumstock before DELETE ON carritos
-        FOR EACH
-        ROW
-        BEGIN
-             UPDATE productos,carritos,users
-            SET productos.stock = productos.stock + old.cantidad
-            WHERE productos.id = old.codigo_producto;
-        END;
+        CREATE TRIGGER difstock after insert ON detalles 
+        FOR EACH ROW 
+        UPDATE productos,detalles SET productos.stock = productos.stock - new.cantidad WHERE
+         productos.id = new.codigo_producto;
         ');
     }
-   
+
     /**
      * Reverse the migrations.
      *

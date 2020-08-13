@@ -35,5 +35,6 @@ Route::group(['middleware' => ['permission:crear_empleado|modificar_empleado|dar
 });
 Route::group(['middleware' => ['permission:comprar_productos']], function () {
     Route::resource('seleccion','CarritoController');
+    Route::resource('boleta','BoletaController');
     Route::get('carrito','CarritoController@carrito');
 });

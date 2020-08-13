@@ -14,6 +14,7 @@ class CreateDetallesTable extends Migration
     public function up()
     {
         Schema::create('detalles', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('codigo_producto');
             $table->unsignedBigInteger('codigo_boleta');
             $table->integer('cantidad');

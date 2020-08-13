@@ -14,6 +14,7 @@ class CreateMedioPagosTable extends Migration
     public function up()
     {
         Schema::create('medio_pagos', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('codigo_boleta');
             $table->unsignedBigInteger('codigo_pago');
             $table->integer('total_pago');

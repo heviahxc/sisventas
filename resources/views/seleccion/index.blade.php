@@ -40,19 +40,22 @@
   <input  type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ej: 1" required><br>
  
 
-  <input class="btn btn-outline-primary" type="submit" value="Agregar a Carrito">
+  <input class="btn btn-outline-primary" type="submit" value="Agregar a Carrito" >
+  
     <br>
 </form>
 
     </div>
 
    @endforeach    
-
-</div>
-
-                  
+     
                 </div>
+                
+               
+
             </div>
+
+           {{$productos->links()}}
         </div>
     </div>
 </div>
