@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Boleta;
 use App\Detalle;
 use App\MedioPago;
+use App\Producto;
+use App\Categoria;
 use App\Carrito;
+
 
 class BoletaController extends Controller
 {
@@ -17,7 +20,12 @@ class BoletaController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        $categorias = Categoria::all();
+        $boletas = Boleta::all();
+        $detalles = Detalle::all();
+        $mediopagos = MedioPago::all();
+        return view('boleta.index', compact('productos','categorias','boletas','detalles','mediopagos'));
     }
 
     /**

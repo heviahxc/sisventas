@@ -33,7 +33,7 @@
         <p><strong>Precio:</strong>${{$producto->precio}}</p>
         <input type="hidden" name="id" id="id" value="{{$producto->id}}">
         @foreach ($users as $user)
-        <input type="hidden" name="rut" id="rut" value="{{$user->rut}}"> 
+        <input type="hidden" name="rut" id="rut" value="{{auth()->user()->rut}}"> 
         @endforeach
         <input type="hidden" name="precio" id="precio" value="{{$producto->precio}}">
         <p><strong>Cantidad:</strong></p>

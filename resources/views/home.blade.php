@@ -15,6 +15,7 @@
                     @endif
                     'Has iniciado sesion '
                     {{ $user->name }}
+                 
                 </div>
             </div>
         </div>

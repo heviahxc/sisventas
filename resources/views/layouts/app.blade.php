@@ -43,6 +43,10 @@
                 @can('comprar_productos')
                 <a class="navbar-brand" href="{{ url('seleccion') }}">
                     {{'Tienda'}}
+                    <a class="navbar-brand" href="{{ url('boleta') }}">
+                        {{'Historial de compras'}}
+                        <a class="navbar-brand" href="{{ url('/carrito') }}">
+                            {{'Carrito'}}
                 @endcan
 
                 @can('crear_empleado')
