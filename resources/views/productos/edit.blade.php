@@ -27,8 +27,13 @@
     @endforeach
 
   </select>
+  <br>
 
-
+  <label for="categoria">Estado:</label><br>
+  <select class="form-control form-control-lg" id="estado" name="estado" size="1" value="{{$producto->estado}}">
+    <option value="ACTIVO">ACTIVO</option> 
+    <option value="INACTIVO">INACTIVO</option>
+  </select>
   <br>
   
   <input class="btn btn-outline-primary" type="submit" value="Editar Producto">

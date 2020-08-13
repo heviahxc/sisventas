@@ -25,9 +25,10 @@
            <th>precio</th>
            <th>stok</th>
            <th>categoria</th>
+           <th>estado</th>
            <th>imagen</th>
            <th>&nbsp;</th>
-           <th>&nbsp;</th>
+           
 
        </tr>
       </thead>
@@ -41,17 +42,14 @@
              @foreach ($categorias as $categoria)
              @if ($producto->id_categoria == $categoria->id)
              <td>{{$categoria->nombre_categoria}}</td>
+             <td>{{$producto->estado}}</td>
              @endif    
              @endforeach
 
              <td><img src="{{asset('storage').'/'.$producto->imagen}}" alt="producto" width="50"></td>
             
              <td><form action="/productos/{{$producto->id}}/edit" method="GET">
-                 <button type="submit" class="btn btn-primary">Editar</button></form></td>
-             <td><form action="/productos/{{$producto->id}}" method="POST">
-                 @csrf
-                 @method('DELETE')
-                 <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
+                 <button type="submit" class="btn btn-primary">Modificar</button></form></td>
              </tr>
          
           

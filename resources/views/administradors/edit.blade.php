@@ -88,7 +88,21 @@
                                     @enderror
                                 </div>
                             </div>
+
+                            
                             <input type="hidden" name="tipo_usuario" id="tipo_usuario" value="EMPLEADO">
+
+
+                            <div class="form-group row">
+                                <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
+                                <div class="col-md-6">
+                                     <select class="form-control form-control" id="estado" name="estado" size="1" value="{{$users->estado}}">
+                                             <option value="ACTIVO">ACTIVO</option> 
+                                             <option value="INACTIVO">INACTIVO</option>
+                                     </select>
+                               </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
     

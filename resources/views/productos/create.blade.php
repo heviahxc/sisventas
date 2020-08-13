@@ -27,6 +27,8 @@
 
   </select>
   <br>
+  <input type="hidden" name="estado" id="estado" value="ACTIVO">
+  
   <label for="imagen">Imagen:</label><br>
   <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*"><br>
 <br>

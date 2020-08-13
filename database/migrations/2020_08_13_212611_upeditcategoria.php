@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriasTable extends Migration
+class Upeditcategoria extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCategoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre_categoria');
-            $table->string('estado');
-            $table->timestamps();
-        });
+        DB::unprepared('
+        create TRIGGER upper_editcategoria BEFORE UPDATE ON categorias FOR EACH ROW SET NEW.nombre_categoria = UPPER(NEW.nombre_categoria ),NEW.estado = UPPER(NEW.estado )
+        ');
     }
 
     /**
@@ -28,6 +25,6 @@ class CreateCategoriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        //
     }
 }

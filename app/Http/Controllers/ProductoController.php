@@ -44,6 +44,7 @@ class ProductoController extends Controller
             'precio' => 'required',
             'stock' => 'required',
             'id_categoria' => 'required',
+            'estado' => 'required',
             'imagen'=>'required',
 
         ]);
@@ -53,6 +54,7 @@ class ProductoController extends Controller
         $producto->precio = request('precio');
         $producto->stock = request('stock');
         $producto->id_categoria = request('id_categoria');
+        $producto->estado = request('estado');
         $producto->imagen= request('imagen');
 
         if($request->hasFile('imagen')){
@@ -101,6 +103,7 @@ class ProductoController extends Controller
             'precio' => 'required',
             'stock' => 'required',
             'id_categoria' => 'required',
+            'estado' => 'required',
         ]);
 
         $producto = Producto::find($id);
@@ -108,6 +111,7 @@ class ProductoController extends Controller
         $producto->precio = request('precio');
         $producto->stock = request('stock');
         $producto->id_categoria = request('id_categoria');
+        $producto->estado = request('estado');
 
         $producto->save();
         return redirect('/productos');

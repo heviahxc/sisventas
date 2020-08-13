@@ -13,10 +13,12 @@ class CategoriaSeeder extends Seeder
     {
         DB::table('categorias')->insert([
             'nombre_categoria' => 'Maquinarias',
+            'estado' => 'ACTIVO',
             
         ]);
         DB::table('categorias')->insert([
             'nombre_categoria' => 'Herramientas',
+            'estado' => 'ACTIVO',
         
         ]);
     }

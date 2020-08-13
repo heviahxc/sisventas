@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriasTable extends Migration
+class Upedituser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCategoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre_categoria');
-            $table->string('estado');
-            $table->timestamps();
-        });
+        DB::unprepared('
+        create TRIGGER upper_editusers BEFORE UPDATE ON users FOR EACH ROW SET NEW.name = UPPER(NEW.name), NEW.apellidos = UPPER(NEW.apellidos)
+        ');
     }
 
     /**
@@ -28,6 +25,6 @@ class CreateCategoriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        //
     }
 }

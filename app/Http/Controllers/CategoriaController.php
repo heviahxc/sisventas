@@ -41,6 +41,7 @@ class CategoriaController extends Controller
 
         $categoria = new Categoria;
         $categoria->nombre_categoria = request('nombre_categoria');
+        $categoria->estado = request('estado');
 
         $categoria->save();
         return redirect('/categorias');
@@ -84,6 +85,7 @@ class CategoriaController extends Controller
 
         $categoria = Categoria::find($id);
         $categoria->nombre_categoria = request('nombre_categoria');
+        $categoria->estado = request('estado');
 
         $categoria->save();
         return redirect('/categorias');
