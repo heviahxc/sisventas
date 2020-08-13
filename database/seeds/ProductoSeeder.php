@@ -16,6 +16,7 @@ class ProductoSeeder extends Seeder
             'precio' => '200000',           
             'stock' => '20',
             'id_categoria' => '1',
+            'estado' => 'ACTIVO',
             'imagen'=>'imagen1',
         ]);
         DB::table('productos')->insert([
@@ -23,6 +24,7 @@ class ProductoSeeder extends Seeder
             'precio' => '80000',           
             'stock' => '50',
             'id_categoria' => '2',
+            'estado' => 'ACTIVO',
             'imagen'=>'imagen2',
        
         ]);

@@ -23,8 +23,9 @@
               <th>Fono</th>
               <th>email</th>
               <th>Tipo</th>
+              <th>Estado</th>
               <th>&nbsp;</th>
-              <th>&nbsp;</th>
+              
 
           </tr>
          </thead>
@@ -38,12 +39,9 @@
                 <td>{{$user->fono}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->tipo_usuario}}</td>
+                <td>{{$user->estado}}</td>
                 <td><form action="/administradors/{{$user->id}}/edit" method="GET">
-                    <button type="submit" class="btn btn-primary">Editar</button></form></td>
-                <td><form action="/administradors/{{$user->id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
+                    <button type="submit" class="btn btn-primary">Modificar</button></form></td>
                 </tr>
             @else
                 

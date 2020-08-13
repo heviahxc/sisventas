@@ -18,8 +18,9 @@
       <thead>
        <tr>
            <th>nombre</th>
+           <th>estado</th>
            <th>&nbsp;</th>
-           <th>&nbsp;</th>
+           
 
        </tr>
       </thead>
@@ -27,13 +28,10 @@
          @foreach ($categorias as $categoria)
          <tr>
              <td>{{$categoria->nombre_categoria}}</td>
+             <td>{{$categoria->estado}}</td>
 
              <td><form action="/categorias/{{$categoria->id}}/edit" method="GET">
-                 <button type="submit" class="btn btn-primary">Editar</button></form></td>
-             <td><form action="/categorias/{{$categoria->id}}" method="POST">
-                 @csrf
-                 @method('DELETE')
-                 <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
+                 <button type="submit" class="btn btn-primary">Modificar</button></form></td>
              </tr>
          
           
