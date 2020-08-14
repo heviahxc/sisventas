@@ -22,7 +22,7 @@ class BoletaController extends Controller
     {
         $productos = Producto::all();
         $categorias = Categoria::all();
-        $boletas = Boleta::all();
+        $boletas = Boleta::paginate(6);
         $detalles = Detalle::all();
         $mediopagos = MedioPago::all();
         return view('boleta.index', compact('productos','categorias','boletas','detalles','mediopagos'));

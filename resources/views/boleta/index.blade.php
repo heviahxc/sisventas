@@ -40,12 +40,9 @@
              <td>{{$boleta->created_at}}</td>
              <td><button  type="submit" class="btn btn-info btn-lg" data-toggle="modal"  data-target="#{{$boleta->id}}">Ver detalle</button>
              @endif  
-          
-            
-            
- 
 
-
+  <!-- Modal-->
+             
     <div id="{{$boleta->id}}" class="modal fade" role="dialog">
         <div class="modal-dialog">
       
@@ -88,9 +85,7 @@
                            @endif
                         
                            @endif 
-                     
-                         
-              
+   
          @endforeach
         </tbody>
         </table>
@@ -122,9 +117,11 @@
      $(document).ready(function() {
        $('#boletas').DataTable();
      } );</script>
-
+ {{$boletas->links()}}
             </div>
+            
         </div>
+       
     </div>
 </body>
 

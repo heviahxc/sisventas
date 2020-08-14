@@ -13,7 +13,7 @@ class DespachoController extends Controller
      */
     public function index()
     {
-        $boletas = Boleta::all();
+        $boletas = Boleta::paginate(10);
         return view('despacho.index', compact('boletas'));
     }
 
