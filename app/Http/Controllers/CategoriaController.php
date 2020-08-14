@@ -43,8 +43,15 @@ class CategoriaController extends Controller
         $categoria->nombre_categoria = request('nombre_categoria');
         $categoria->estado = request('estado');
 
-        $categoria->save();
-        return redirect('/categorias');
+        if($categoria->save()){
+            return redirect('/categorias')->with('msj', 'Datos guardados');
+        
+        }else{
+            
+        }
+
+
+        
     }
 
     /**

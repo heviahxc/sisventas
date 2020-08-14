@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
 <head>
   <link rel="stylesheet" type="text/css" href="/css/fondo.css">
 </head>

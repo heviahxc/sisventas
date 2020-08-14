@@ -38,21 +38,22 @@
              <td>{{$boleta->total}}</td>
              <td>{{$boleta->estado}}</td>
              <td>{{$boleta->created_at}}</td>
+             <td><button  type="submit" class="btn btn-info btn-lg" data-toggle="modal"  data-target="#{{$boleta->id}}">Ver detalle</button>
              @endif  
           
             
             
- <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ver detalle</button>
+ 
 
 
-    <div id="myModal" class="modal fade" role="dialog">
+    <div id="{{$boleta->id}}" class="modal fade" role="dialog">
         <div class="modal-dialog">
       
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Detalle Boleta</h4>
+              <h4 class="modal-title">{{$boleta->id}}</h4>
             </div>
             <div class="modal-body">
                 <table id="detalle">
@@ -71,7 +72,7 @@
                     <tbody>
                        @foreach ($detalles as $detalle)
                        <tr>
-                           @foreach ($boletas as $boleta)
+                        
                            @if ($boleta->rut_cliente==auth()->user()->rut)
                        @if ($detalle->codigo_boleta==$boleta->id)
                         @foreach ($productos as $producto)
@@ -87,7 +88,7 @@
                            @endif
                         
                            @endif 
-                           @endforeach
+                     
                          
               
          @endforeach
