@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Categoria;
+use Illuminate\Support\Collection;
 class CategoriaController extends Controller
 {
     /**
@@ -38,17 +39,23 @@ class CategoriaController extends Controller
         $this->validate(request(),[
             'nombre_categoria' => 'required',
         ]);
-
-        $categoria = new Categoria;
-        $categoria->nombre_categoria = request('nombre_categoria');
-        $categoria->estado = request('estado');
-
-        if($categoria->save()){
-            return redirect('/categorias')->with('msj', 'Datos guardados');
+        $cs = Categoria::all();
+        foreach($cs as $cate){
+            if($cate->nombre_categoria==request('nombre_categoria')){
+                $categoria = new Categoria;
+                $categoria->nombre_categoria = request('nombre_categoria');
+                $categoria->estado = request('estado');
         
-        }else{
-            
+                if($categoria->save()){
+                    return redirect('/categorias')->with('msj', 'Datos guardados');
+                
+                }
+            }else{
+                return redirect('/categorias')->with('msje', 'Categoria ya existe');
+            }
         }
+
+        
 
 
         

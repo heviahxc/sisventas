@@ -3,8 +3,19 @@
 @section('content')
 
 @if (session()->has('msj'))
+<div class="row justify-content-center">
 <div class="alert alert-success" role="alert">
   {{session('msj')}}
+  <button type="button" class="close" data-dismiss="alert">x</button>
+</div>
+</div>
+@endif
+@if (session()->has('msje'))
+<div class="row justify-content-center">
+<div class="alert alert-danger" role="alert">
+  {{session('msje')}}
+  <button type="button" class="close" data-dismiss="alert">x</button>
+</div>
 </div>
 @endif
 <head>
