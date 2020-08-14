@@ -37,4 +37,6 @@ Route::group(['middleware' => ['permission:comprar_productos']], function () {
     Route::resource('seleccion','CarritoController');
     Route::resource('boleta','BoletaController');
     Route::get('carrito','CarritoController@carrito');
+    Route::resource('clientes','ClienteController');
+    
 });

@@ -2,7 +2,11 @@
 
 
 @section('content')
-
+@if (session()->has('msj'))
+<div class="alert alert-danger" role="alert">
+  {{session('msj')}}
+  @endif
+</div>
     <head>
      
       
