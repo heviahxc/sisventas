@@ -40,7 +40,7 @@
                     {{'Categorias'}}
                 </a>
 
-                <a class="navbar-brand" href="{{ url('boleta') }}">
+                <a class="navbar-brand" href="{{ url('despacho') }}">
                     {{'Despacho'}}
                 </a>
 

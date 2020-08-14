@@ -1,7 +1,3 @@
-@canany('reporte_productos','darbaja_productos','modificar_productos','crear_productos')
-
-
-
 
 @extends('layouts.app')
 @section('content')
@@ -34,22 +30,28 @@
          
          @foreach ($boletas as $boleta)
          <tr>
-            @if($boleta->estado == 'VIJENTE')
+            @if($boleta->estado == 'VIGENTE')
              <td>{{$boleta->rut_cliente}}</td>
-             <td>{{$producto->total}}</td>
-             <td>{{$producto->estado}}</td>
+             <td>{{$boleta->total}}</td>
+             <td>{{$boleta->estado}}</td>
+             <td><form action="/despacho/{{$boleta->id}}" method="POST">
+                @method('PUT')
+                {{ csrf_field() }}
+                <input type="hidden" name="estado" id="estado" value="DESPACHADA">
+                <button type="submit" class="btn btn-primary">Despachar</button></form></td>
             @endif
+
+            
+            
              @endforeach
-             <td><form action="/boleta/{{$boleta->id}}/edit" method="GET">
-                 <button type="submit" class="btn btn-primary">Despachar</button></form></td>
+           
              </tr>
          
           
-         @endforeach
-
+      
       </tbody>
       </table>
-      <h1> <button type="button" class="btn btn-outline-primary" style="margin: 5%"><a href="/productos/create">Agregar Nuevo producto</a></button></h1>
+    
 
       </div>
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -66,4 +68,3 @@
 
 
 @endsection
-@endcan
