@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['permission:reporte_productos|modificar_productos|crear_productos|darbaja_productos|reporte_categoria|crear_categoria|modificar_categoria|darbaja_categoria']], function () {
     Route::resource('productos','ProductoController');
     Route::resource('categorias','CategoriaController');
+    
 });
 
 Route::group(['middleware' => ['permission:crear_empleado|modificar_empleado|darbaja_empleado']], function () {

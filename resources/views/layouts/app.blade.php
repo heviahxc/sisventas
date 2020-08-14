@@ -39,6 +39,10 @@
                     {{'Categorias'}}
                 </a>
 
+                <a class="navbar-brand" href="{{ url('boleta') }}">
+                    {{'Despacho'}}
+                </a>
+
                 @endcan
                 @can('comprar_productos')
                 <a class="navbar-brand" href="{{ url('seleccion') }}">

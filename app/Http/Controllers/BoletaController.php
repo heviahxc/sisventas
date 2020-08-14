@@ -105,7 +105,8 @@ class BoletaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $boletas = Boleta::all();
+        return view('boleta.edit', compact('boletas'));
     }
 
     /**
@@ -117,7 +118,15 @@ class BoletaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $boleta = new Boleta;
+        $boleta->rut_cliente = request('rut_cliente');
+        $boleta->total = request('total');
+        $boleta->estado = request('estado');
+
+        $boleta->save();
+
+        
+        return redirect('/home');
     }
 
     /**

@@ -15,6 +15,7 @@
                     @endif
 
                     {{--Agregar productos--}}
+
 <div class="row">
    @foreach ($productos as $producto)
     <div class="col-6" >
@@ -59,4 +60,6 @@
         </div>
     </div>
 </div>
+
+{{$productos->links()}}
 @endsection
