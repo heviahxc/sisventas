@@ -7,6 +7,7 @@ use App\categoria;
 use App\user;
 use App\tipopago;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class CarritoController extends Controller
 {
@@ -49,21 +50,37 @@ class CarritoController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate(request(),[
             'id' => 'required',
             'rut' => 'required',
             'cantidad' => 'required',
             'precio'=>'required',
         ]);
+        $productos = Producto::all();
+        foreach($productos as $producto){
+            
+                if($producto->id== request('id')){
+if($producto->stock> request('cantidad')){
 
-        $carrito = new Carrito;
-        $carrito->codigo_producto = request('id');
-        $carrito->rut = request('rut');
-        $carrito->cantidad = request('cantidad');
-        $carrito->precio_unitario = request('precio');
+    $carrito = new Carrito;
+    $carrito->codigo_producto = request('id');
+    $carrito->rut = request('rut');
+    $carrito->cantidad = request('cantidad');
+    $carrito->precio_unitario = request('precio');
 
-        $carrito->save();
-        return redirect('/seleccion');
+    $carrito->save();
+    return redirect('/seleccion');
+
+        
+                }else{
+                    return redirect('seleccion')->with('msj', 'Cantidad supera el stock');
+                }
+            }
+            
+
+        
+    }
     }
 
     /**

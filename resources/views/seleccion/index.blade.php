@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session()->has('msj'))
+<div class="alert alert-danger" role="alert">
+  {{session('msj')}}
+</div>
+@endif
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -38,7 +45,7 @@
         @endforeach
         <input type="hidden" name="precio" id="precio" value="{{$producto->precio}}">
         <p><strong>Cantidad:</strong></p>
-  <input  type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ej: 1" required><br>
+  <input  type="number" class="form-control" id="cantidad" name="cantidad"  min="1" placeholder="Ej: 1" required><br>
  
 
   <input class="btn btn-outline-primary" type="submit" value="Agregar a Carrito" >
