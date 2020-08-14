@@ -7,7 +7,7 @@ use App\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Collection;
 class IngresoController extends Controller
 {
     /**
@@ -49,7 +49,17 @@ class IngresoController extends Controller
             'password'=>'required',
 
         ]);
+        $userss = User::all();
+        $comparacion = '';
+        foreach($userss as $user){
 
+        if($user->rut== request('rut')){
+        $comparacion = $user->rut;
+        }
+    }
+    if($comparacion==request('rut')){
+        return redirect('/administradors')->with('msj', 'Usuario ya existe');
+    }else{
         $users = new User;
         $users->rut = request('rut');
         $users->name = request('name');
@@ -66,6 +76,7 @@ class IngresoController extends Controller
         $users->removeRole('CLIENTE');
         $users->assignRole('EMPLEADO');
         return redirect('/administradors');
+    }
     }
 
     /**
