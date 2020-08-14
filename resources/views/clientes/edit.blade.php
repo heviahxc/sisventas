@@ -17,7 +17,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Rut') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" name="rut" value="{{$users->rut}}">
+                                    <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" name="rut" value="{{$users->rut}}" readonly=»readonly»>
     
                                     @error('rut')
                                         <span class="invalid-feedback" role="alert">
@@ -79,7 +79,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$users->email}}">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$users->email}}" readonly=»readonly»>
     
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -90,18 +90,8 @@
                             </div>
 
                             
-                            <input type="hidden" name="tipo_usuario" id="tipo_usuario" value="EMPLEADO">
+                            <input type="hidden" name="tipo_usuario" id="tipo_usuario" value="CLIENTE">
 
-
-                            <div class="form-group row">
-                                <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
-                                <div class="col-md-6">
-                                     <select class="form-control form-control" id="estado" name="estado" size="1" value="{{$users->estado}}">
-                                             <option value="ACTIVO">ACTIVO</option> 
-                                             <option value="INACTIVO">INACTIVO</option>
-                                     </select>
-                               </div>
-                            </div>
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
