@@ -25,6 +25,7 @@
 
 <div class="row">
    @foreach ($productos as $producto)
+   @if ($producto->estado=="ACTIVO")
     <div class="col-6" >
         <form method="POST" action="/seleccion">
             {{ csrf_field() }}
@@ -49,7 +50,7 @@
  
 
   <input class="btn btn-outline-primary" type="submit" value="Agregar a Carrito" >
-  
+  @endif
     <br>
 </form>
 
@@ -68,5 +69,5 @@
     </div>
 </div>
 
-{{$productos->links()}}
+
 @endsection

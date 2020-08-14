@@ -22,7 +22,10 @@
   <label for="categoria">Categoria:</label><br>
   <select class="form-control form-control-lg" id="id_categoria" name="id_categoria" size="1">
     @foreach ($categorias as $categoria)
-        <option value={{$categoria->id}}>{{$categoria->nombre_categoria}}</option>
+    @if ($categoria->estado=="ACTIVO")
+    <option value={{$categoria->id}}>{{$categoria->nombre_categoria}}</option>
+    @endif
+        
     @endforeach
 
   </select>
