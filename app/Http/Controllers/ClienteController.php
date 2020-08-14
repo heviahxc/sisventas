@@ -74,7 +74,21 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            
+            ]);
+    
+            $users = User::find($id);
+            $users->name = request('name');
+            $users->apellidos = request('apellidos');
+            $users->fono = request('fono');
+            $users->email = request('email');
+            $users->password= Hash::make(request('password'));
+            $users->estado= request('estado');
+            
+    
+            $users->save();
+            return redirect('/home');
     }
 
     /**
