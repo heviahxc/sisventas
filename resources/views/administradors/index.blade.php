@@ -17,9 +17,12 @@
 
    </head>
    <body>
-       <div class="container" STYLE="BACKGROUND-COLOR: WHITE">
+       <div class="container">
+            <div class="card" >
+                <div class="card-header" style = "background: #bd362f; color: white;">Empleados</div>
+                    <div class="card-body">
        <table id="users">
-         <thead>
+         <thead style="display: inline-block; padding: 5px;">
           <tr>
               <th>Rut</th>
               <th>Nombre</th>
@@ -37,14 +40,14 @@
             @foreach ($users as $user)
             @if ($user->tipo_usuario == 'EMPLEADO')
             <tr>
-                <td>{{$user->rut}}</td>
-                <td>{{$user->name}}</td>
-                <td>{{$user->apellidos}}</td>
-                <td>{{$user->fono}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->tipo_usuario}}</td>
-                <td>{{$user->estado}}</td>
-                <td><form action="/administradors/{{$user->id}}/edit" method="GET">
+                <td style="display: inline-block; padding: 5px;">{{$user->rut}}</td>
+                <td style="display: inline-block; padding: 5px;">{{$user->name}}</td>
+                <td style="display: inline-block; padding: 5px;">{{$user->apellidos}}</td>
+                <td style="display: inline-block; padding: 5px;">{{$user->fono}}</td>
+                <td style="display: inline-block; padding: 5px;">{{$user->email}}</td>
+                <td style="display: inline-block; padding: 5px;">{{$user->tipo_usuario}}</td>
+                <td style="display: inline-block; padding: 5px;">{{$user->estado}}</td>
+                <td style="display: inline-block; padding: 5px;"><form action="/administradors/{{$user->id}}/edit" method="GET">
                     <button type="submit" class="btn btn-primary">Modificar</button></form></td>
                 </tr>
             @else
@@ -56,7 +59,10 @@
          </tbody>
          
          </table>
-         <h1><button type="button" class="btn btn-out line-primary" style="margin: 5%"><a href="/administradors/create">Agregar Nuevo Empleado</a></button></h1>
+         <a href="/administradors/create" class="btn btn-primary">Agregar Nuevo Empleado</a>
+         </div>
+         </div>
+         </div>
          </div>
          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
          <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
