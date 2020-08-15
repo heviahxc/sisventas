@@ -33,11 +33,12 @@ Route::group(['middleware' => ['permission:reporte_productos|modificar_productos
 
 Route::group(['middleware' => ['permission:crear_empleado|modificar_empleado|darbaja_empleado']], function () {
     Route::resource('administradors','IngresoController');
-    Route::resource('clientes','ClienteController');
+    Route::get('cliente','IngresoController@cliente');
+    
 
 });
 Route::group(['middleware' => ['permission:comprar_productos']], function () {
-    Route::resource('seleccion','CarritoController');
+    
     Route::resource('boleta','BoletaController');
     Route::get('carrito','CarritoController@carrito');
     Route::resource('clientes','ClienteController');

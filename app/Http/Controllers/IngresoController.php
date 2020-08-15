@@ -90,6 +90,11 @@ class IngresoController extends Controller
         //
     }
 
+    public function cliente (){
+        $users = User::all();
+        return view('administradors.cliente',compact('users'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
