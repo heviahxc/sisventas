@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -15,7 +17,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Rut') }}</label>
 
                             <div class="col-md-6">
-                                <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" name="rut" value="{{ old('rut') }}" placeholder="Ej: 159624889" required autocomplete="rut" autofocus>
+                                <input id="rut" type="text" required oninput="checkRut(this)" maxlength="10" class="form-control @error('rut') is-invalid @enderror" name="rut" value="{{ old('rut') }}" placeholder="Ej: 159624889" required autocomplete="rut" autofocus>
 
                                 @error('rut')
                                     <span class="invalid-feedback" role="alert">
