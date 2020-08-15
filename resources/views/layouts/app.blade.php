@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Ferreteria') }}</title>
-    <link rel="stylesheet" type="text/css" href="css/fondo.css">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -24,23 +24,23 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav  class="navbar navbar-expand-lg navbar-light" style="background-color: #bd362f;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" style= "color: white;" href="{{ url('/') }}">
                    Ferreteria
                 </a>
 
                 @can('reporte_productos')
   
 
-                <a class="navbar-brand" href="{{ url('productos') }}">
+                <a class="navbar-brand"style= "color: white;" href="{{ url('productos') }}">
                     {{'Productos'}}
                 </a>
-                <a class="navbar-brand" href="{{ url('categorias') }}">
+                <a class="navbar-brand"style= "color: white;" href="{{ url('categorias') }}">
                     {{'Categorias'}}
                 </a>
 
-                <a class="navbar-brand" href="{{ url('despacho') }}">
+                <a class="navbar-brand"style= "color: white;" href="{{ url('despacho') }}">
                     {{'Despacho'}}
                 </a>
 
@@ -63,7 +63,7 @@
                 </a>
                     
                 @endcan
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -78,11 +78,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}" style= "color: white;">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style= "color: white;">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
