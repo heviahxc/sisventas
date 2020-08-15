@@ -40,26 +40,32 @@ class CategoriaController extends Controller
             'nombre_categoria' => 'required',
         ]);
         $cs = Categoria::all();
+        $catego = '';
         foreach($cs as $cate){
+
             if($cate->nombre_categoria==request('nombre_categoria')){
+
+                $catego = $cate->nombre_categoria;
+                
+            }
+        }           
+            if($catego==request('nombre_categoria')){
+                return redirect('/categorias')->with('msje', 'Categoria ya existe');
+            }else{
+
+            
                 $categoria = new Categoria;
                 $categoria->nombre_categoria = request('nombre_categoria');
                 $categoria->estado = request('estado');
-        
                 if($categoria->save()){
                     return redirect('/categorias')->with('msj', 'Datos guardados');
                 
-                }
-            }else{
-                return redirect('/categorias')->with('msje', 'Categoria ya existe');
-            }
-        }
-
+                }  
+               } 
+          }  
+    
         
-
-
-        
-    }
+    
 
     /**
      * Display the specified resource.
@@ -102,7 +108,11 @@ class CategoriaController extends Controller
         $categoria->estado = request('estado');
 
         $categoria->save();
-        return redirect('/categorias');
+
+        if($categoria->save()){
+            return redirect('/categorias')->with('msj', 'Datos guardados');
+        
+        }  
     }
 
     /**
