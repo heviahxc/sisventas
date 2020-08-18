@@ -16,7 +16,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Carrito</div>
+                <div class="card-header" style="background: #bd362f; color: white;">Carrito</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -27,7 +27,7 @@
                   
                     <body>
 
-                    <div class="container" STYLE="BACKGROUND-COLOR: WHITE">
+                    <div class="container" >
                        
                          
                                 {{ csrf_field() }}
@@ -117,5 +117,6 @@
         </div>
     </div>
 </div>
+
 </body>
 @endsection

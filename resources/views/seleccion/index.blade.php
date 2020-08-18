@@ -7,13 +7,40 @@
 </div>
 @endif
 
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100"  src="/css/oferta1.jpg" >
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/css/oferta2.jpg" >
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/css/oferta3.jpg" >
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<br>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Productos</div>
-                <a href="/carrito" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Carrito de compra</a>
+                <div class="card-header" style="background: #bd362f; color: white;" >Productos</div>
+                <a href="/carrito" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Ver Carrito de Compras</a>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -49,7 +76,7 @@
   <input  type="number" class="form-control" id="cantidad" name="cantidad"  min="1" placeholder="Ej: 1" required><br>
  
 
-  <input class="btn btn-outline-primary" type="submit" value="Agregar a Carrito" >
+  <input class="btn btn-primary" type="submit" value="Agregar a Carrito" >
   @endif
     <br>
 </form>

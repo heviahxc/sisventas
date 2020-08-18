@@ -92,19 +92,19 @@
 
                 @endcan
                 @can('comprar_productos')
-                <a class="navbar-brand" href="{{ url('seleccion') }}">
+                <a class="navbar-brand" style= "color: white;" href="{{ url('seleccion') }}">
                     {{'Tienda'}}
-                    <a class="navbar-brand" href="{{ url('boleta') }}">
+                    <a class="navbar-brand" style= "color: white;" href="{{ url('boleta') }}">
                         {{'Historial de compras'}}
-                        <a class="navbar-brand" href="{{ url('/carrito') }}">
+                        <a class="navbar-brand" style= "color: white;" href="{{ url('/carrito') }}">
                             {{'Carrito'}}
                 @endcan
 
                 @can('crear_empleado')
-                <a class="navbar-brand" href="{{ url('administradors') }}">
+                <a class="navbar-brand" style= "color: white;" href="{{ url('administradors') }}">
                     {{'Empleados'}}
                 </a>
-                    <a class="navbar-brand" href="{{ url('cliente') }}">
+                    <a class="navbar-brand" style= "color: white;" href="{{ url('cliente') }}">
                     {{'Clientes'}}
                 </a>
                     
@@ -133,7 +133,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" style= "color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                
