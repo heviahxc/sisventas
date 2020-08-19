@@ -10,9 +10,11 @@ body{
 
 
 .card-body{
+    
     background-color: #343a40;
     color: white;
+    
 }
-.card{
-    opacity: 0.9;
-}
+
+
+
