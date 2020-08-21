@@ -75,7 +75,10 @@ class IngresoController extends Controller
         $users->save();
         $users->removeRole('CLIENTE');
         $users->assignRole('EMPLEADO');
-        return redirect('/administradors');
+        if($users->save()){
+            return redirect('/administradors')->with('msjes', 'Datos Guardados');
+        
+        } 
     }
     }
 
@@ -131,7 +134,10 @@ class IngresoController extends Controller
         
 
         $users->save();
-        return redirect('/administradors');
+        if($users->save()){
+            return redirect('/administradors')->with('msj', 'Datos Modificados');
+        
+        } 
     }
 
     /**

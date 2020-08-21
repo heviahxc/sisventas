@@ -55,8 +55,8 @@ $CLIENTE->syncPermissions($permissions_user);
 $admin_user = User::create([
     'rut' => '111111111',
     'name' => 'admin',
-    'apellidos' => '1',
-    'fono' => '133',
+    'apellidos' => 'empleado',
+    'fono' => '13332423',
     'email' => 'admin@gmail.com',
     'tipo_usuario' => 'ADMINISTRADOR',
     'password' => Hash::make('admin'),

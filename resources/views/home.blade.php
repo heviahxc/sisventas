@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    'Has iniciado sesion '
+                    'Haz iniciado sesion '
                     {{ $user->name }}
                  
                 </div>

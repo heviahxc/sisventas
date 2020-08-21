@@ -70,7 +70,10 @@ if($producto->stock> request('cantidad')){
     $carrito->precio_unitario = request('precio');
 
     $carrito->save();
-    return redirect('/seleccion');
+    if($carrito->save()){
+        return redirect('/seleccion')->with('msje', 'Añadido al carrito');
+    
+    } 
 
         
                 }else{

@@ -74,7 +74,10 @@ class DespachoController extends Controller
         $boleta->estado = request('estado');
 
         $boleta->save();
-        return redirect('/despacho');
+        if($boleta->save()){
+            return redirect('/despacho')->with('msj', 'Despachado');
+        
+        } 
     }
 
     /**

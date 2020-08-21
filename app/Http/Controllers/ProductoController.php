@@ -62,7 +62,10 @@ class ProductoController extends Controller
         }
 
         $producto->save();
-        return redirect('/productos');
+        if($producto->save()){
+            return redirect('/productos')->with('msj', 'Datos guardados');
+        
+        }  
     }
 
     /**
@@ -114,7 +117,10 @@ class ProductoController extends Controller
         $producto->estado = request('estado');
 
         $producto->save();
-        return redirect('/productos');
+        if($producto->save()){
+            return redirect('/productos')->with('msje', 'Datos Modificados');
+        
+        } 
     }
 
     /**

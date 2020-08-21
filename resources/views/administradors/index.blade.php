@@ -2,15 +2,26 @@
 
 
 @section('content')
+
 @if (session()->has('msj'))
-<div class="alert alert-danger" role="alert">
+<div class="row justify-content-center">
+<div class="alert alert-success" role="alert">
   {{session('msj')}}
-  @endif
+  <button type="button" class="close" data-dismiss="alert">x</button>
+
 </div>
+</div>
+@endif
+@if (session()->has('msjes'))
+<div class="row justify-content-center">
+  <div class="alert alert-success" role="alert">
+    {{session('msjes')}}
+    <button type="button" class="close" data-dismiss="alert">x</button>
+  </div>
+</div>
+@endif
     <head>
-     
-      
-       
+
        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 
        <title>DataTable</title>
@@ -32,7 +43,6 @@
               <th>Tipo</th>
               <th>Estado</th>
               <th>&nbsp;</th>
-              
 
           </tr>
          </thead>
