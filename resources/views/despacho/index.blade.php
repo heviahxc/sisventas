@@ -35,6 +35,8 @@
 
                         @foreach ($boletas as $boleta)
                         <tr>
+                            @if ($boleta->estado=="VIGENTE")
+                                
                             
                             <td>{{$boleta->rut_cliente}}</td>
                             <td>{{$boleta->total}}</td>
@@ -95,7 +97,7 @@
                                             @endif
               
                                             @endif
-              
+             
                                             @endforeach
                                             
                                         </tbody>
@@ -111,6 +113,7 @@
                               </div>
                               
                         </tr>
+                        @endif
                         @endforeach
 
                             
