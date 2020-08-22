@@ -17,6 +17,7 @@ class CreateBoletasTable extends Migration
             $table->id();
             $table->string('rut_cliente');
             $table->integer('total');
+            $table->String('direccion');
             $table->string('estado');
 
             $table->foreign('rut_cliente')->references('rut')->on('users');

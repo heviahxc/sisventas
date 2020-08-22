@@ -47,10 +47,21 @@ class BoletaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+
+    {   $carrit = Carrito::all();
+        $condicion = null;
+        foreach($carrit as $carri){
+            $condicion = $carri->id;
+        }
+            if($condicion==null){
+                return redirect('/carrito')->with('error', 'No hay productos en el carrito');
+            }else{
+
+           
         $boleta = new Boleta;
         $boleta->rut_cliente = request('rut_cliente');
         $boleta->total = request('total');
+        $boleta->direccion = request('direccion');
         $boleta->estado = request('estado');
 
         $boleta->save();
@@ -83,8 +94,12 @@ class BoletaController extends Controller
 
   
 
-        return redirect('/home');
-    }
+        if($boleta->save()){
+            return redirect('/home')->with('msj', 'Compra exitosa');
+        
+        } 
+    }}
+    
 
     /**
      * Display the specified resource.

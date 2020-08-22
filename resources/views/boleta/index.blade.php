@@ -3,8 +3,6 @@
 
 <head>
 
-
-
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 
   <title>DataTable</title>
@@ -33,17 +31,16 @@
 
           <tbody>
             @foreach ($boletas as $boleta)
-            <tr>
+      
               @if ($boleta->rut_cliente==auth()->user()->rut)
-
-
+              <tr>
               <td>{{$boleta->id}}</td>
               <td>{{$boleta->total}}</td>
               <td>{{$boleta->estado}}</td>
               <td>{{$boleta->created_at}}</td>
               <td><button type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$boleta->id}}">Ver detalle</button>
-                @endif
-
+               
+              
                 <!-- Modal-->
 
                 <div id="{{$boleta->id}}" class="modal fade" role="dialog">
@@ -90,6 +87,7 @@
                               @endif
 
                               @endforeach
+                              
                           </tbody>
                         </table>
                         <script>
@@ -103,12 +101,14 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                       </div>
                     </div>
-
+                   
                   </div>
                 </div>
+               
             </tr>
-
+            @endif
             @endforeach
+           
           </tbody>
         </table>
       </div>

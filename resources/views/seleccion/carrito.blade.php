@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (session()->has('error'))
+<div class="row justify-content-center">
+  <div class="alert alert-danger" role="alert">
+    {{session('error')}}
+    <button type="button" class="close" data-dismiss="alert">x</button>
+  </div>
+</div>
+@endif
 <head>
      
       
@@ -90,6 +97,8 @@
                           <form action="/boleta" method="POST">
                             {{ csrf_field() }}
                           <p><Strong>Total:</Strong>${{$total}}</p>   
+                          <label for="direccion">Direccion:</label><br>
+        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ej: Villa Ancoa 32" required><br>
                          <strong>Seleccionar metodo de pago:<strong>
                             <select class="form-control form-control" id="id_pago" name="id_pago" size="1">
                                 @foreach ($tipopagos as $tipopago)
