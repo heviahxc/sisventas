@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Boleta;
+use App\Detalle;
+use App\Producto;
+use App\Categoria;
 class DespachoController extends Controller
 {
     /**
@@ -13,8 +16,11 @@ class DespachoController extends Controller
      */
     public function index()
     {
-        $boletas = Boleta::paginate(10);
-        return view('despacho.index', compact('boletas'));
+        $boletas = Boleta::all();
+        $detalles = Detalle::all();
+        $productos = Producto::all();
+        $categorias = Categoria::all();
+        return view('despacho.index', compact('boletas','detalles','productos','categorias'));
     }
 
     /**

@@ -13,13 +13,13 @@
         {{ csrf_field() }}
 
         <label for="nombre">Nombre producto:</label><br>
-        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Martillo" required><br>
+        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="50" placeholder="Ej: Martillo" required><br>
 
         <label for="precio">Precio:</label><br>
-        <input type="number" class="form-control" id="precio" name="precio" min="1" placeholder="Ej: 35000" required><br>
+        <input type="number" class="form-control"  id="precio" name="precio" min="1" maxlength="12" placeholder="Ej: 35000" required><br>
 
         <label for="stock">Stock:</label><br>
-        <input type="number" class="form-control" id="stock" name="stock" min="1" placeholder="Ej: 20" required><br>
+        <input type="number" class="form-control" id="stock" maxlength="10" name="stock" min="1" placeholder="Ej: 20" required><br>
 
         <label for="categoria">Categoria:</label><br>
         <select class="form-control form-control-lg" id="id_categoria" name="id_categoria" size="1">

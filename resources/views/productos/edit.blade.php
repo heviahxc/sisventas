@@ -15,7 +15,7 @@
         {{ csrf_field() }}
 
         <label for="nombre">Nombre producto:</label><br>
-        <input type="text" class="form-control" id="nombre" name="nombre" value="{{$producto->nombre}}"><br>
+        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="50" value="{{$producto->nombre}}"><br>
 
         <label for="precio">Precio:</label><br>
         <input type="number" class="form-control" id="precio" name="precio" min="1" value="{{$producto->precio}}"><br>
