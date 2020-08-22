@@ -142,6 +142,11 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/clientes/{{ Auth::user()->id }} /edit">Perfil
                                     </a></form>
+                                
+                                    <form action="/contrasenas/{{ Auth::user()->id }} /edit" method="GET">
+                                    <a class="dropdown-item" href="/contrasenas/{{ Auth::user()->id }} /edit">Contraseña
+                                    </a></form>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

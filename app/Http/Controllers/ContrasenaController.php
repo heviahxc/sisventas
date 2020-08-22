@@ -18,8 +18,7 @@ class ContrasenaController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('contrasenas.index',compact('users'));
+       
     }
 
     /**
@@ -86,7 +85,7 @@ class ContrasenaController extends Controller
     
             $users->save();
             if($users->save()){
-                return redirect('/contrasenas')->with('msj', 'Datos Modificados');
+                return redirect('/home')->with('msj', 'Datos Modificados');
             
             } 
     }

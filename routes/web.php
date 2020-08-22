@@ -22,7 +22,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('contrasenas','ContrasenaController');
-
+Route::resource('clientes','ClienteController');
 
 
 Route::group(['middleware' => ['permission:reporte_productos|modificar_productos|crear_productos|darbaja_productos|reporte_categoria|crear_categoria|modificar_categoria|darbaja_categoria']], function () {
@@ -42,6 +42,6 @@ Route::group(['middleware' => ['permission:comprar_productos']], function () {
     Route::resource('seleccion','CarritoController');
     Route::resource('boleta','BoletaController');
     Route::get('carrito','CarritoController@carrito');
-    Route::resource('clientes','ClienteController');
+    
     
 });

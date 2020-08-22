@@ -87,7 +87,10 @@ class ClienteController extends Controller
             
     
             $users->save();
-            return redirect('/home');
+            if($users->save()){
+                return redirect('/home')->with('msj', 'Datos Modificados');
+            
+            } 
     }
 
     /**
