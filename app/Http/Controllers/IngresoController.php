@@ -130,7 +130,7 @@ class IngresoController extends Controller
         $users->fono = request('fono');
         $users->email = request('email');
         $users->estado= request('estado');
-        $users->password= Hash::make(request('password'));
+        
         
 
         $users->save();
