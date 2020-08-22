@@ -41,7 +41,12 @@
                             <td>{{$boleta->estado}}</td>
                             <td>{{$boleta->direccion}}</td>
                            
-                            
+                            <td><form action="/despacho/{{$boleta->id}}" method="GET">
+                              @method('PUT')
+                              {{ csrf_field() }}
+                              <input type="hidden" name="estado" id="estado" value="DESPACHADA">
+                              <button type="submit" class="btn btn-primary">Despachar</button></form>
+                            </td>
                             
                             <td><button type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{$boleta->id}}">Ver detalle</button>
                             
